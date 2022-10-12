@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="bootstrap-5.2.2-dist/css/bootstrap.min.css" rel="stylesheet">
+		<title>Чат без мата</title>
+		<style>
+			/* ]Введение */
+			.intro {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                margin-top: 0;
+                width: 100%;
+                height: 100vh;
+                background: url("../anti-mat/img/bg.png") center no-repeat;
+                background-size: cover;
+				
+            }
+
+			/* форма авторизации */
+			.d-grid{
+				background-color: white;
+				padding: 10vh 3vh 3vh 3vh;
+				border-radius: 3vh;
+				
+			}
+            
+			.label {
+				text-align: center;
+			}
+			form {
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 20vw;
+				font-size: 1vw;
+			}
+			.col{
+				color: red;
+				background-color: gray;
+			}
+			.form-control{
+				height: 4vh;
+				font-size: 1.2vw;
+			}
+			button{
+				height: 2.5vw;
+			}
+			
+			@media screen and (max-width: 999px) {	
+				form {
+					width: 80vw;
+					font-size: 5vw;
+				}
+				.form-control{
+					
+					height: 9vw;
+					font-size: 5vw;
+				}
+				button{
+					height: 10vw;
+				}
+			}
+		
+		</style>
+	</head>
+	
+	<body>
+		<div class = "intro";>
+			<form class="d-grid bg-image">
+
+				<!-- Форма регистрации скрыто-->
+				<div class = "mb-3">
+					<button type="submit" class="btn btn-outline-primary">Войти</button>
+				</div>
+				<div class = "mb-3">
+					<label for="intro-name" class = "form_title">w/o swearing</label>
+				</div>
+				<div class="mb-3 d-none">
+					<label for="exampleInputEmail1" class="form-label">Почта</label>
+					<input type="email" class="form-control" id="reg_mail" aria-describedby="emailHelp">
+				</div>
+				<div class="mb-3 d-none">
+					<label for="exampleInputEmail1" class="form-label">Никнейм</label>
+					<input type="email" class="form-control" id="reg_nickname" aria-describedby="emailHelp">
+				</div>
+				<div class="mb-3 d-none">
+					<label for="exampleInputEmail1" class="form-label">Пароль</label>
+					<input type="email" class="form-control" id="reg_password" aria-describedby="emailHelp">
+				</div>
+				<div class="mb-3 d-none">
+					<label for="exampleInputEmail1" class="form-label">Повторите пароль</label>
+					<input type="email" class="form-control" id="reg_password_2" aria-describedby="emailHelp">
+				</div>
+
+				<!-- Форма авторизации -->
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Почта или Никнейм</label>
+					<input type="email" class="form-control" id="auth_login" aria-describedby="emailHelp">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Пароль</label>
+					<input type="password" class="form-control" id="auth_password">
+				</div>
+				<div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Запомнить</label>
+				</div>
+				<button type="submit" class="btn btn-outline-primary">Войти</button>
+			</form>
+		</div>
+	</body>
+</html>
