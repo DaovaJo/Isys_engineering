@@ -13,20 +13,25 @@ class ReadDict():
             # self.cur.execute("INSERT INTO Dict VALUES (?, ?)", (self.mat, self.change))
             # self.conNect.commit()
 
-            info = self.cur.execute('SELECT * FROM Dict WHERE замена=?', (self.change, )).fetchone()
-            print(info)
-            if info == None:
-                self.cur.execute("INSERT * FROM Dict WHERE замена=?", (self.change))
+            # info = self.cur.execute('SELECT * FROM Dict WHERE замена=?', (self.change, )).fetchone()
+            # print(info)
+            info = self.cur.execute('SELECT * FROM Dict WHERE мат=?', (self.mat, ))
+            if info.fetchone() is None:  
+                self.cur.execute("INSERT INTO Dict VALUES (?, ?)", (self.mat, self.change))
                 self.conNect.commit()
-                print(self.mat, self.change)
+                print(self.mat + '---------------' + self.change)
             else:
-                print(True)     
+            # self.cur.execute("INSERT * FROM Dict WHERE замена=?", (self.change))
+                self.cur.execute("Update Dict set замена = ? where мат = ?", (self.change, self.mat))
+                self.conNect.commit()
+                print("мияу")
+            
         except:
             self.cur.execute("CREATE TABLE Dict(мат, замена)")
 
 
     def read_dict(self):
-        file = open('bd\словарный запас.txt', encoding="utf-8")
+        file = open('anti mat/bd/словарный запас.txt', encoding="utf-8")
         for line in file:
             line = line.split("-")
             self.mat = line[0]
