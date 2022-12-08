@@ -11,7 +11,7 @@ GO
 USE chat
 GO
 
-CREATE TABLE chats /*Чаты*/
+CREATE TABLE chats /*Г—Г ГІГ»*/
 (
 [ID_CHAT] INT NOT NULL IDENTITY(1,1),
 [NAME_CHAT] VARCHAR(100) NOT NULL,
@@ -20,7 +20,7 @@ CONSTRAINT [ID_CHAT] PRIMARY KEY CLUSTERED
 )
 GO
 
-CREATE TABLE users /*Пользователи*/
+CREATE TABLE users /*ГЏГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГЁ*/
 (
 [ID_USER] INT NOT NULL IDENTITY(1,1),
 [LOGIN] VARCHAR(50) NOT NULL,
@@ -30,7 +30,7 @@ CONSTRAINT [ID_USER] PRIMARY KEY CLUSTERED
 )
 GO
 
-CREATE TABLE dictionary /*Словарь*/
+CREATE TABLE dictionary /*Г‘Г«Г®ГўГ Г°Гј*/
 (
 [ID_DICT] INT NOT NULL IDENTITY(1,1),
 [WORD] VARCHAR(150) NOT NULL,
@@ -40,7 +40,7 @@ CONSTRAINT [ID_DICT] PRIMARY KEY CLUSTERED
 )
 GO
 
-CREATE TABLE messagen /*Сообщения, строка ввода*/
+CREATE TABLE messagen /*Г‘Г®Г®ГЎГ№ГҐГ­ГЁГї, Г±ГІГ°Г®ГЄГ  ГўГўГ®Г¤Г */
 (
 [ID_MES] INT NOT NULL IDENTITY(1,1),
 [CHAT_ID] INT NOT NULL,
@@ -57,13 +57,14 @@ REFERENCES dictionary ([ID_DICT])
 )
 GO
 
-CREATE TABLE story_chat /*История чата*/
+CREATE TABLE story_chat /*Г€Г±ГІГ®Г°ГЁГї Г·Г ГІГ */
 (
 [ID_STORY] INT NOT NULL IDENTITY(1,1),
 [USER1_ID] INT NOT NULL,
 [USER2_ID] INT NOT NULL,
 [CHATS_ID] INT NOT NULL,
 [MES_ID] INT NOT NULL,
+[MESSAGE_TEXT] VARCHAR(500) NOT NULL,
 [DATA_MES] DATE NOT NULL,
 CONSTRAINT [ID_STORY] PRIMARY KEY CLUSTERED
 ([ID_STORY] ASC) ON [PRIMARY],
