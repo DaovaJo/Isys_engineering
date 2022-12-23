@@ -1,24 +1,20 @@
-CREATE PROCEDURE users.adding
-@ USER
-@ PASSWORD
-AS
-BEGIN
-SET NOCOUNT ON 
+Процедура добавления, записывает данные пользователя (логин и пароль) в БД
 
-     INSERT INTO users.adding
-          (                    
-            USER,
-            PASSWORD
-          ) 
-     VALUES 
-          ( 
-@ USER, 
-@ PASSWORD
-          ) 
-END
+CREATE PROCEDURE [DBO].[FORM_USER_ADD](@LOGIN VARCHAR(50), @PASSWORD VARCHAR(50))
+AS INSERT INTO [DBO].[users](LOGIN, PASSWORD)
+VALUES(@LOGIN, @PASSWORD)
+GO
 
 
-exec users.adding
-@ USER = ‘’, 
-@ PASSWORD = ‘’
+Процедура добавления, записывает данные сообщения и время отправки
+CREATE PROCEDURE [DBO].[FORM_STORY_CHAT_ADD](@ID_USER1 INT, @ID_USER2 INT, @CHAT_ID INT, @MES_ID INT, @MESSAGE_TEXT VARCHAR(500), @DATA_MES DATE)
+AS INSERT INTO [DBO].[story_chat](ID_USER1, ID_USER2, CHAT_ID, MES_ID, MESSAGE_TEXT, DATA_MES)
+VALUES(@ID_USER1, @ID_USER2, @CHAT_ID, @MES_ID, @MESSAGE_TEXT, @DATA_MES)
+GO
 
+ 
+Процедура добавления данных в чат
+CREATE PROCEDURE [DBO].[FORM_CHAT_ADD](@NAME_CHAT VARCHAR(500))
+AS INSERT INTO [DBO].[chat](NAME_CHAT)
+VALUES(@NAME_CHAT)
+GO
